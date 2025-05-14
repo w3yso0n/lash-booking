@@ -17,7 +17,7 @@ export default function Home() {
       </div>
 
       <section className="px-4 md:px-10 lg:px-24 py-1 bg-gray-100">
-        <BookingCalendar />
+        <Gallery />
       </section>
  <Servicios />
       <section className="px-4 md:px-10 lg:px-24 py-1 bg-gray-100">
