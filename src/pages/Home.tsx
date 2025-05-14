@@ -14,11 +14,11 @@ export default function Home() {
         <Hero />
       </div>
 
-      {/* <section className="px-4 md:px-10 lg:px-24 py-12 bg-gray-100">
-        <Gallery />
-      </section> */}
+      <section className="px-4 md:px-10 lg:px-24 py-1 bg-gray-100">
+        <BookingCalendar />
+      </section>
 
-      <section className="px-4 md:px-10 lg:px-24 py-12 bg-gray-100">
+      <section className="px-4 md:px-10 lg:px-24 py-1 bg-gray-100">
         <BookingCalendar />
       </section>
 

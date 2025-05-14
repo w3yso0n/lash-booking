@@ -12,7 +12,7 @@ const horarios = [
 ];
 
 // ⚠️ CAMBIA este número por el tuyo, sin espacios ni guiones
-const NUMERO_WHATSAPP = "523326278420";
+const NUMERO_WHATSAPP = "523310502957";
 
 export default function BookingCalendar() {
   const [fechaSeleccionada, setFechaSeleccionada] = useState<Date | undefined>();
@@ -28,7 +28,7 @@ export default function BookingCalendar() {
     }
 
     const fecha = format(fechaSeleccionada, "PPPP");
-    const resumen = `Hola! 👋 Me gustaría agendar una cita para pestañas 💅\n\n🗓 Fecha: ${fecha}\n🕒 Hora: ${horarioSeleccionado}\n🙋 Nombre: ${nombre}\n📱 Contacto: ${contacto}\n📝 Notas: ${mensaje || "Sin notas"}\n\n¿Está disponible este horario?`;
+const resumen = `Hola 👋 Me gustaría agendar una cita en *San Sebastián Spa* 💆‍♀️✨\n\n🗓 *Fecha:* ${fecha}\n🕒 *Hora:* ${horarioSeleccionado}\n🙋‍♀️ *Nombre:* ${nombre}\n📱 *Contacto:* ${contacto}\n📝 *Servicio requerido:* ${mensaje || "No especificado"}\n\n¿Está disponible este horario?`;
 
     const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(resumen)}`;
     window.open(url, "_blank");

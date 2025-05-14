@@ -15,7 +15,7 @@ export default function Gallery() {
 
   return (
     <section id="galeria" className="py-12 px-6 bg-gray-100">
-      <h2 className="text-3xl font-bold text-primary text-center mb-8">Galería de Pestañas</h2>
+      <h2 className="text-3xl font-bold text-primary text-center mb-8">Nuestros Servicios</h2>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
         {trabajos.map((img, index) => (
