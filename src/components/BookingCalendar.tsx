@@ -55,13 +55,17 @@ export default function BookingCalendar() {
               <div className="flex flex-wrap gap-2 mb-4">
                 {horarios.map((hora) => (
                   <Button
-                    key={hora}
-                    variant={horarioSeleccionado === hora ? "default" : "outline"}
-                    onClick={() => setHorarioSeleccionado(hora)}
-                    className={`text-sm ${horarioSeleccionado === hora ? "ring-2 ring-primary" : ""}`}
-                  >
-                    {hora}
-                  </Button>
+  key={hora}
+  variant={horarioSeleccionado === hora ? "default" : "outline"}
+  onClick={() => setHorarioSeleccionado(hora)}
+  className={`text-sm border border-[#9A3324] ${
+    horarioSeleccionado === hora
+      ? "!bg-[#9A3324] !text-white hover:!bg-[#7b291d]"
+      : "text-[#9A3324] hover:bg-[#fef7f6]"
+  } transition-colors`}
+>
+  {hora}
+</Button>
                 ))}
               </div>
 
@@ -79,11 +83,11 @@ export default function BookingCalendar() {
               />
 
               <Button
-                onClick={handleWhatsApp}
-                className="w-full bg-primary text-black"
-              >
-                Agendar por WhatsApp
-              </Button>
+  onClick={handleWhatsApp}
+  className="w-full !bg-[#9A3324] !text-white hover:!bg-[#7b291d] transition-colors"
+>
+  Agendar por WhatsApp
+</Button>
             </>
           ) : (
             <p className="text-gray-500 italic mt-6">Selecciona una fecha para ver los horarios disponibles.</p>

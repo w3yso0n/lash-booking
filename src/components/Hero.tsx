@@ -11,7 +11,7 @@ export default function Hero() {
         <h2 className="text-5xl font-bold mb-4">Bienestar, Belleza y Rehabilitación</h2>
         <p className="text-lg mb-6">Agéndate fácil, revisa mi trabajo y cotiza en segundos</p>
         <a href="#agendar">
-          <Button className="bg-[#9A3324] hover:bg-[#7b291d] text-black">
+          <Button className="!bg-[#9A3324] !text-white border-transparent hover:!bg-[#7b291d] transition-colors">
             Reservar ahora
           </Button>
         </a>
