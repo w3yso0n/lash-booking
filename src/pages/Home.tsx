@@ -12,15 +12,15 @@ export default function Home() {
     <MainLayout>
       <Navbar />
 
-      <div className="pt-16">
+      <div className="">
         <Hero />
       </div>
 
-      <section className="px-4 md:px-10 lg:px-24 py-1 bg-gray-100">
+      <section className=" py-1 bg-gray-100">
         <Gallery />
       </section>
  <Servicios />
-      <section className="px-4 md:px-10 lg:px-24 py-1 bg-gray-100">
+      <section className=" lg:px-24 bg-gray-100">
         <BookingCalendar />
       </section>
       <Footer />

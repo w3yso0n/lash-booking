@@ -16,19 +16,18 @@ const NUMERO_WHATSAPP = "523310502957";
 
 export default function BookingCalendar() {
   const [fechaSeleccionada, setFechaSeleccionada] = useState<Date | undefined>();
-  const [horarioSeleccionado, setHorarioSeleccionado] = useState("");
+  const [horarioSeleccionado, setHorarioSeleccionado] = useState<string>("");
   const [nombre, setNombre] = useState("");
-  const [contacto, setContacto] = useState("");
   const [mensaje, setMensaje] = useState("");
 
   const handleWhatsApp = () => {
-    if (!fechaSeleccionada || !horarioSeleccionado || !nombre || !contacto) {
+    if (!fechaSeleccionada || !horarioSeleccionado || !nombre ) {
       alert("Completa todos los campos antes de continuar.");
       return;
     }
 
     const fecha = format(fechaSeleccionada, "PPPP");
-const resumen = `Hola 👋 Me gustaría agendar una cita en *San Sebastián Spa* 💆‍♀️✨\n\n🗓 *Fecha:* ${fecha}\n🕒 *Hora:* ${horarioSeleccionado}\n🙋‍♀️ *Nombre:* ${nombre}\n📱 *Contacto:* ${contacto}\n📝 *Servicio requerido:* ${mensaje || "No especificado"}\n\n¿Está disponible este horario?`;
+    const resumen = `Hola 👋 Me gustaría agendar una cita en *San Sebastián Spa* 💆‍♀️✨\n\n🗓 *Fecha:* ${fecha}\n🕒 *Hora:* ${horarioSeleccionado}\n🙋‍♀️ *Nombre:* ${nombre}\n📱\n📝 *Servicio requerido:* ${mensaje || "No especificado"}\n\n¿Está disponible este horario?`;
 
     const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(resumen)}`;
     window.open(url, "_blank");
@@ -44,13 +43,13 @@ const resumen = `Hola 👋 Me gustaría agendar una cita en *San Sebastián Spa*
           <DayPicker
             mode="single"
             selected={fechaSeleccionada}
-            onSelect={setFechaSeleccionada}
+            onSelect={(date) => setFechaSeleccionada(date ?? undefined)}
             disabled={{ before: new Date() }}
           />
         </div>
 
         <div>
-          {fechaSeleccionada && (
+          {fechaSeleccionada ? (
             <>
               <p className="font-medium mb-2">Selecciona una hora:</p>
               <div className="flex flex-wrap gap-2 mb-4">
@@ -59,21 +58,35 @@ const resumen = `Hola 👋 Me gustaría agendar una cita en *San Sebastián Spa*
                     key={hora}
                     variant={horarioSeleccionado === hora ? "default" : "outline"}
                     onClick={() => setHorarioSeleccionado(hora)}
-                    className="text-sm"
+                    className={`text-sm ${horarioSeleccionado === hora ? "ring-2 ring-primary" : ""}`}
                   >
                     {hora}
                   </Button>
                 ))}
               </div>
 
-              <Input placeholder="Tu nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} className="mb-3" />
-              <Input placeholder="WhatsApp o correo" value={contacto} onChange={(e) => setContacto(e.target.value)} className="mb-3" />
-              <Textarea placeholder="Notas para tu cita (opcional)" value={mensaje} onChange={(e) => setMensaje(e.target.value)} className="mb-3" />
+              <Input
+                placeholder="Tu nombre"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+                className="mb-3"
+              />
+              <Textarea
+                placeholder="Notas para tu cita (opcional)"
+                value={mensaje}
+                onChange={(e) => setMensaje(e.target.value)}
+                className="mb-3"
+              />
 
-              <Button onClick={handleWhatsApp} className="w-full bg-primary text-white">
+              <Button
+                onClick={handleWhatsApp}
+                className="w-full bg-primary text-black"
+              >
                 Agendar por WhatsApp
               </Button>
             </>
+          ) : (
+            <p className="text-gray-500 italic mt-6">Selecciona una fecha para ver los horarios disponibles.</p>
           )}
         </div>
       </div>
